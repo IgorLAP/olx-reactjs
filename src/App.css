@@ -12,9 +12,14 @@ html{
 
 body{
     font-family: 'Montserrat', sans-serif;
-    background-color: #c3c3c3;
+    background-color: #EEE;
 }
-
+a{
+    text-decoration: none;
+}
+a:visited{
+    color:#000;
+}
 .container{
     max-width: 1000px;
     margin-right: auto;
