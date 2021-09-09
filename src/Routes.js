@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import NoFound from './pages/NoFound';
 import SignIn from './pages/SignIn';
+import MyAccount from './pages/MyAccount';
 
 export default ()=>{
     return(
@@ -16,6 +17,9 @@ export default ()=>{
             </Route>
             <Route exact path="/signup">
                 <SignUp />
+            </Route>
+            <Route exact path="/my-account">
+                <MyAccount/>
             </Route>
             <Route>
                 <NoFound />

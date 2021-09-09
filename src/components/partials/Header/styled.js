@@ -35,7 +35,7 @@ const HeaderArea = styled.div`
         list-style: none;
     }
     .menu li:last-child{
-        padding: 5px 5px;
+        padding: 5px 0px;
         border-radius: 3px;
         background-color: #F28001;
         
@@ -43,10 +43,14 @@ const HeaderArea = styled.div`
             color: #FFF;
         }
     }
-    .menu li a{
+    .menu li a, button{
+        border: 0;
+        outline: 0;
+        background: none;
+        font-size: 15px;
         color: #000;
-        margin-right: 10px;
-        margin-left: 10px;
+        margin-right: 20px;
+        margin-left: 20px;
         text-align: center;
         cursor: pointer;
 
