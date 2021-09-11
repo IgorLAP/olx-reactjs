@@ -26,19 +26,6 @@ const Header = ()=>{
                 </Link>
                 <nav className="menu">
                     <ul>
-                        {!logged &&
-                        <>
-                            <li>
-                                <Link to="/signin">Login</Link>
-                            </li>
-                            <li>
-                                <Link to="/signup">Cadastrar</Link>
-                            </li>
-                            <li>
-                                <Link to="/signin">Poste um anúncio</Link>
-                            </li>
-                        </>
-                        }
                         {logged &&
                         <>
                             <li>
@@ -49,6 +36,19 @@ const Header = ()=>{
                             </li>
                             <li>
                                 <Link to="/post-an-ad">Poste um anúncio</Link>
+                            </li>
+                        </>
+                        }
+                        {!logged &&
+                        <>
+                            <li>
+                                <Link to="/signin">Login</Link>
+                            </li>
+                            <li>
+                                <Link to="/signup">Cadastrar</Link>
+                            </li>
+                            <li>
+                                <Link to="/signin">Poste um anúncio</Link>
                             </li>
                         </>
                         }
