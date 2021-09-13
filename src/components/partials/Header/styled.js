@@ -38,8 +38,12 @@ const HeaderArea = styled.div`
         padding: 5px 0px;
         border-radius: 3px;
         background-color: #F28001;
+        cursor: pointer;
         
-        a:hover{
+        &:hover{
+            background-color: #DE7602;
+        }
+        &:hover a{
             color: #FFF;
         }
     }

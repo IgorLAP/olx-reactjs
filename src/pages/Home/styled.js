@@ -22,13 +22,14 @@ export const SearchArea = styled.div`
         input{
             flex: 1;
             transition: all ease .3s;
+            border: 1px solid transparent;
 
             &:focus{
                 border: 1px solid #000;
             }
         }
         select{
-            width: 55px;
+            width: 65px;
         }
         button{
             width: 80px;
