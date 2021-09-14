@@ -7,7 +7,7 @@ import NoFound from './pages/NoFound';
 import SignIn from './pages/SignIn';
 import MyAccount from './pages/MyAccount';
 import AdPage from './pages/AdPage';
-import PostAd from './pages/PostAd';
+import AddAd from './pages/AddAd';
 
 export default ()=>{
     return(
@@ -28,7 +28,7 @@ export default ()=>{
                 <AdPage />
             </RouteHandler>
             <RouteHandler private exact path="/post-an-ad">
-                <PostAd />
+                <AddAd />
             </RouteHandler>
             <RouteHandler>
                 <NoFound />
