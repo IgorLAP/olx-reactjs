@@ -72,7 +72,7 @@ const Page = ()=>{
                     <div className="list">
                         {adList &&
                             adList.map((i,k)=>
-                                <AdItem key={k} data={i}/>
+                                <AdItem others={false}  key={k} data={i}/>
                             )
                         }
                     </div>

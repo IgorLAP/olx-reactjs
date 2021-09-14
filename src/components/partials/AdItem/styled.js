@@ -13,6 +13,10 @@ export const Item = styled.div`
     color: #000;
     transition: all ease .3s;
 
+    &:visited{
+        color: #000;
+    }
+
     &:hover{
         background-color: #EEE;
         border: 2px solid #CCC;

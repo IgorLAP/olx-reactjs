@@ -10,9 +10,16 @@ export default (props)=>{
         price = `R$ ${props.data.price.toFixed(2)}`;
     }
 
+    
+    const handleClick = ()=> {
+        if(props.others === true ){
+            window.location.href = `/ad/${props.data.id}`;
+        }
+    }
+
     return(
         <Item className="itemAd">
-            <Link to={`/ad/${props.data.id}`}>
+            <Link to={`/ad/${props.data.id}`} onClick={handleClick}>
                 <div className="itemImage">
                     <img src={props.data.image} alt="" />
                 </div>

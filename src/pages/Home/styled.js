@@ -90,5 +90,7 @@ h2{
     display: inline-block;
     padding: 10px 0px;
 }
-    
+.seeAllLinks:hover{
+    color: #9bb83c;
+}
 `;
