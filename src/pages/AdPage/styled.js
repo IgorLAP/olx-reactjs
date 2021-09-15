@@ -84,6 +84,8 @@ export const AdPageArea = styled.div`
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+                max-width: 360px;
+                word-wrap: break-word;
 
                 small{
                     color: #999;

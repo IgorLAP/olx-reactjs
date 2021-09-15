@@ -43,9 +43,9 @@ const Page = ()=>{
         <>
             <SearchArea>
                 <PageContainer>
-                    <form method="GET">
-                        <input type="text" placeholder="O que você procura?"/>
-                        <select>
+                    <form method="GET" action="/ads">
+                        <input type="text" name="q" placeholder="O que você procura?"/>
+                        <select name="state">
                             <option></option>
                             {stateList &&
                                 stateList.map((i,k)=>
