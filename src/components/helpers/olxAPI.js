@@ -51,7 +51,7 @@ const apiFetchPost = async (endpoint, body)=> {
 }
 
 const apiFetchGet = async (endpoint, body = [])=> {
-    if(body.token){
+    if(!body.token){
         let token = Cookies.get('token');
         if(token){
             body.token = token;
@@ -114,6 +114,12 @@ const OlxAPI = {
         const json = await apiFetchFile(
             '/ad/add',
             fData
+        );
+        return json;
+    },
+    userMe:async()=>{
+        const json = await apiFetchGet(
+            '/user/me'
         );
         return json;
     }

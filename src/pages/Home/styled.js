@@ -70,6 +70,31 @@ export const SearchArea = styled.div`
             }
         }
     }
+
+@media (max-width: 600px){
+    form{
+        flex-direction: column;
+
+        input{
+            padding: 10px;
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        select{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        button{
+            width: 100%;
+        }
+    }
+
+    .categoryList .categoryItem{
+        width: 50%;
+        padding: 10px;
+    }
+}
 `;
 
 export const PageArea = styled.div`
@@ -92,5 +117,12 @@ h2{
 }
 .seeAllLinks:hover{
     color: #9bb83c;
+}
+
+@media (max-width:600px){
+
+    .list .itemAd{
+        width: 50%;
+    }
 }
 `;

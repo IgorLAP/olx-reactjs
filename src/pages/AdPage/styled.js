@@ -124,6 +124,49 @@ export const AdPageArea = styled.div`
             padding: 10px 0;
         }
     }
+
+@media (max-width: 600px){
+    flex-direction: column;
+
+    .leftSide{
+        width: auto;
+        margin: auto;
+
+        .box{
+            grid-template-columns: repeat(1,1fr);
+            column-gap: 20px;
+
+        }
+
+        .infoAd{
+
+            .descriptionAd{
+                height: 75px;
+                
+                hr{
+                    width: 90%;
+                    margin-bottom: 5px;
+                }
+
+            }
+        }
+
+    }
+
+    .rightSide{
+        width: auto;
+
+        .box{
+            width: 320px;
+            margin: auto;
+        }
+
+        .contactSellerlink{
+            width: 320px;
+            margin: 20px auto;
+        }
+    }
+}
 `;
 
 export const OthersArea = styled.div`
@@ -150,6 +193,15 @@ export const OthersArea = styled.div`
             height: 300px;
         }
     }
+
+@media (max-width: 600px){
+    margin-left: -10px;
+
+    h2{
+        margin-top: 20px;
+    }
+    
+}
 `;
 
 export const BreadCrumb = styled.div`
