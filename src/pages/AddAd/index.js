@@ -1,43 +1,44 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {useHistory} from 'react-router-dom';
-import PageArea from './styled';
-import {PageContainer, PageTitle, ErrorMessage} from '../../components/MainComponents';
+import  PageArea  from './styled';
+import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
 import useApi from '../../components/helpers/olxAPI';
 import MaskedInput from 'react-text-mask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
-const Page = ()=>{
+const Page = () => {
     const api = useApi();
-    const history = useHistory();
     const fileField = useRef();
+    const history = useHistory();
 
     const [categories, setCategories] = useState([]);
 
-    const [title, setTitle] = useState('');
-    const [category, setCategory] = useState('');
-    const [price, setPrice] = useState('');
-    const [priceNegotiable, setPriceNegotiable] = useState(false);
-    const [desc, setDesc] = useState('');
+    const [ title, setTitle ] = useState('');
+    const [ category, setCategory ] = useState('');
+    const [ price, setPrice ] = useState('');
+    const [ priceNegotiable, setPriceNegotiable] = useState(false);
+    const [ desc, setDesc ] =useState('');
 
-    const [disable, setDisabled] = useState(false);
-    const [error, setError] = useState('');
+    const [ disabled, setDisabled ] = useState(false);
+    const [ error, setError ] = useState('');
 
     useEffect(()=>{
-        const getCategories = async ()=> {
+        const getCategories = async ()=>{
             const cats = await api.getCategories();
             setCategories(cats);
         }
         getCategories();
     },[]);
-
-    const handleSubmit = async (e)=>{
+   
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        setDisabled(true);
+        setDisabled(true); //desabiltar os campos após o submit do form
         setError('');
         let errors = [];
 
+
         if(!title.trim()){
-            errors.push('Sem título');
+            errors.push('Sem titulo');
         }
         if(!category){
             errors.push('Sem categoria');
@@ -52,10 +53,9 @@ const Page = ()=>{
 
             if(fileField.current.files.length > 0){
                 for(let i=0;i<fileField.current.files.length;i++){
-                    fData.append('img', fileField.current.files[i])
+                    fData.append('img', fileField.current.files[i]);
                 }
             }
-
             const json = await api.addAd(fData);
 
             if(!json.error){
@@ -66,54 +66,49 @@ const Page = ()=>{
             }
 
         } else {
-            setError(errors.join("\n"));
+            setError(errors.join('\n'));
         }
-        
-
         setDisabled(false);
     }
 
     const priceMask = createNumberMask({
         prefix: 'R$ ',
-        includeThousandsSeparator:true,
-        thousandsSeparatorSymbol:'.',
-        allowDecimal:true,
-        decimalSymbol:','
+        includeThousandsSeparator: true,
+        thousandsSeparatorSymbol: '.',
+        allowDecimal: true,
+        decimalSymbol: ','
     });
 
-    
-    return(
+    return (
         <PageContainer>
             <PageTitle>Postar um anúncio</PageTitle>
             <PageArea>
                 {error &&
                     <ErrorMessage>{error}</ErrorMessage>
                 }
-                <form  onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <label className="area">
                         <div className="area--title">Titulo</div>
                         <div className="area--input">
-                            <input type="text" 
-                            value={title} 
-                            disabled={disable} 
-                            required 
-                            onChange={e=>setTitle(e.target.value)}/>
+                            <input type="text" disabled={disabled} 
+                            value={title}
+                            onChange={e=>setTitle(e.target.value)}
+                            required
+                            />
                         </div>
                     </label>
                     <label className="area">
                         <div className="area--title">Categoria</div>
                         <div className="area--input">
                             <select
-                                disabled={disable}
+                                disabled={disabled}
                                 onChange={e=>setCategory(e.target.value)}
                                 required
                             >
-                            <option></option>
-                            {categories &&
-                                categories.map((i,k)=>
-                                    <option key={k}>{i.name}</option>
-                                )
-                            }
+                                <option></option>
+                                {categories && categories.map(i=>
+                                    <option key={i._id} value={i._id} >{i.name}</option>  
+                                )}
                             </select>
                         </div>
                     </label>
@@ -123,7 +118,7 @@ const Page = ()=>{
                             <MaskedInput 
                                 mask={priceMask}
                                 placeholder="R$ "
-                                disabled={disable || priceNegotiable}
+                                disabled={disabled || priceNegotiable}
                                 value={price}
                                 onChange={e=>setPrice(e.target.value)}
                             />
@@ -133,36 +128,39 @@ const Page = ()=>{
                         <div className="area--title">Preço Negociável</div>
                         <div className="area--input">
                             <input type="checkbox" 
-                            checked={priceNegotiable} 
-                            disabled={disable} 
-                            onChange={e=>setPriceNegotiable(!priceNegotiable)}/>
+                                    disabled={disabled}
+                                    checked={priceNegotiable}
+                                    onChange={e=>setPriceNegotiable(!priceNegotiable)}
+                            />
                         </div>
                     </label>
                     <label className="area">
                         <div className="area--title">Descrição</div>
                         <div className="area--input">
                             <textarea
-                                disabled={disable}
+                                disabled={disabled}
                                 value={desc}
                                 onChange={e=>setDesc(e.target.value)}
-                            ></textarea>
+                            >    
+                            </textarea>
                         </div>
                     </label>
                     <label className="area">
-                        <div className="area--title">Imagens (1 ou mais)</div>
+                        <div className="area--title">Imagens</div>
                         <div className="area--input">
-                            <input type="file"  
-                            disabled={disable} 
-                            multiple
-                            ref={fileField} />
+                            <input type="file"
+                                    disabled={disabled}
+                                    ref={fileField}
+                                    multiple
+                            />
                         </div>
                     </label>
-                    <label className="area">
+                    <div className="area">
                         <div className="area--title"></div>
                         <div className="area--input">
-                            <button disabled={disable}>Adicionar anúncio</button>
+                            <button disabled={disabled}>Adicionar Anúnco</button>
                         </div>
-                    </label>
+                    </div>
                 </form>
             </PageArea>
         </PageContainer>

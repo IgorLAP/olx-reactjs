@@ -1,9 +1,10 @@
 import Cookies from 'js-cookie';
 import qs from 'qs';
+import { async } from 'q';
 
 const BASEAPI = 'http://alunos.b7web.com.br:501';
 
-const apiFetchFile = async (endpoint, body) => {
+const apiFetchFile = async(endpoint, body) =>{
     if(!body.token){
         let token = Cookies.get('token');
         if(token){
@@ -24,21 +25,20 @@ const apiFetchFile = async (endpoint, body) => {
     return json;
 }
 
-const apiFetchPost = async (endpoint, body) =>{
+const apiFetchPost = async (endpoint, body)=> {
     if(!body.token){
         let token = Cookies.get('token');
         if(token){
             body.token = token;
         }
     }
-
     const res = await fetch(BASEAPI+endpoint, {
         method: 'POST',
-        headers:{
+        headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-type': 'application/json'
         },
-        body: JSON.stringify(body)
+        body:JSON.stringify(body)
     });
     const json = await res.json();
 
@@ -50,15 +50,13 @@ const apiFetchPost = async (endpoint, body) =>{
     return json;
 }
 
-const apiFetchGet = async (endpoint, body = []) =>{  //body opcional no get
-    if(!body.token){
+const apiFetchGet = async (endpoint, body = [])=> {
+    if(body.token){
         let token = Cookies.get('token');
         if(token){
             body.token = token;
         }
     }
-
-    //const params = new URLSearchParams(body); 
     const res = await fetch(`${BASEAPI+endpoint}?${qs.stringify(body)}`);
     const json = await res.json();
 
@@ -70,47 +68,42 @@ const apiFetchGet = async (endpoint, body = []) =>{  //body opcional no get
     return json;
 }
 
-const olxAPI = {
-    login : async (email, password) => {
+const OlxAPI = {
+
+    login:async (email, password) => {
         const json = await apiFetchPost(
-            '/user/signin', //vem do WB
+            '/user/signin',
             {email, password}
         );
         return json;
     },
-    getStates : async ()=>{
+    register:async(name, email, password, stateLoc)=>{
+        const json = await apiFetchPost(
+            '/user/signup',
+            {name, email, password, state: stateLoc}
+        );
+        return json;
+    },
+    getStates:async ()=>{
         const json = await apiFetchGet(
             '/states'
         );
         return json.states;
     },
-    register : async (name, email, password, stateLoc)=>{
-        const json = await apiFetchPost(
-            '/user/signup',
-            {name, email, password, state : stateLoc}
-        );
-        return json;
-    },
-    getCategories: async ()=>{
+    getCategories:async ()=>{
         const json = await apiFetchGet(
             '/categories'
-        )
+        );
         return json.categories;
     },
-    getAds : async (options)=>{
+    getAds: async (options)=>{
         const json = await apiFetchGet(
             '/ad/list',
             options
         );
         return json;
     },
-    getUser: async ()=>{
-        const json = await apiFetchGet(
-            '/user/me'
-        );
-        return json.user;
-    },
-    getAd:async (id, other = false)=> {
+    getAd: async(id, other = false)=>{
         const json = await apiFetchGet(
             '/ad/item',
             {id, other}
@@ -126,4 +119,4 @@ const olxAPI = {
     }
 };
 
-export default ()=>olxAPI;
+export default () => OlxAPI;
