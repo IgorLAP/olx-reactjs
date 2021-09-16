@@ -21,6 +21,7 @@ export const Fake = styled.div`
 
 export const AdPageArea = styled.div`
     display: flex;
+    margin: auto;
 
     .box{
         background-color: #FFF;
@@ -80,7 +81,7 @@ export const AdPageArea = styled.div`
             }
 
             .descriptionAd{
-                height: 70%;
+                height: 60%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -129,16 +130,25 @@ export const AdPageArea = styled.div`
     flex-direction: column;
 
     .leftSide{
-        width: auto;
-        margin: auto;
+        margin: 0;
 
         .box{
-            grid-template-columns: repeat(1,1fr);
+            grid-template-columns: repeat(1, 1fr);
             column-gap: 20px;
+            margin: auto;
 
+        }
+        .imageAnun{
+            
+            height: auto;
+
+            .each-slide img{
+                width: 100%;
+            }
         }
 
         .infoAd{
+            padding:10px;
 
             .descriptionAd{
                 height: 75px;
@@ -155,15 +165,46 @@ export const AdPageArea = styled.div`
 
     .rightSide{
         width: auto;
+        margin-top: 20px;
 
         .box{
-            width: 320px;
+            
             margin: auto;
         }
 
         .contactSellerlink{
-            width: 320px;
+            
             margin: 20px auto;
+        }
+    }
+}
+
+@media (max-width: 320px){
+    .leftSide{
+        .imageAnun{
+            width:280px;
+        }
+
+        .box{
+            word-wrap: break-word;
+                flex-wrap: wrap;
+                overflow: hidden;
+                height: 550px;
+
+            .infoAd{
+                word-wrap: break-word;
+                flex-wrap: wrap;
+                overflow: hidden;
+                
+                width: 100%;
+
+            .descriptionAd{
+                
+                
+                }
+            
+            }
+        
         }
     }
 }
@@ -201,6 +242,16 @@ export const OthersArea = styled.div`
         margin-top: 20px;
     }
     
+}
+
+@media (max-width: 320px){
+    .list{
+        grid-template-columns: repeat(2, 150px);
+
+        .itemAd{
+            width: 150px;
+        }
+    }
 }
 `;
 

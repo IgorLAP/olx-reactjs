@@ -109,7 +109,7 @@ const Page = ()=>{
         pagination.push(i);
     }
 
-    console.log(currentPage !== 1);
+    console.log(currentPage);
 
     return(
         <PageContainer>

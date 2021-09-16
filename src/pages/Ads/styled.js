@@ -94,4 +94,19 @@ export const PageArea = styled.div`
             }
         }
     }
+
+@media (max-width: 600px){
+    flex-direction: column;
+
+    .leftSide{
+        width: auto;
+        margin: 10px;
+
+    }
+    .rightSide{
+        .list{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+}
 `;

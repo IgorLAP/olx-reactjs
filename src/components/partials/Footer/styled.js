@@ -9,6 +9,7 @@ const FooterArea = styled.div`
     color: #999;
     font-size: 14px;
     margin-top: 20px;
+    padding: 10px;
 
     a{
         color: #000;
