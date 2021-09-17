@@ -115,13 +115,13 @@ const AdPage = ()=>{
             {adInfo.others &&
                     <>
                         <h2>Outras ofertas do vendedor</h2>
-                        <Slide className="otherSlide">
+                        <div className="otherSlide">
                         <div className="list">
                             {adInfo.others.map((i,k)=>
                                 <AdItem others={true} key={k} data={i}/>    
                             )}
                         </div>
-                        </Slide>
+                        </div>
                     </>
                 }
             </OthersArea>

@@ -212,7 +212,12 @@ export const AdPageArea = styled.div`
 
 export const OthersArea = styled.div`
     
+    h2{
+        font-size: 20px;
+    }
     .otherSlide{
+        overflow: hidden;
+
         button{
             display: none;   
         }
@@ -220,14 +225,10 @@ export const OthersArea = styled.div`
             display: block;
         }
     }
-    h2{
-        font-size: 20px;
-    }
     .list{
         display: grid;
         grid-template-columns: repeat(4,1fr);
-        grid-auto-flow: column;
-        overflow: hidden;
+        grid-auto-flow: column;        
 
         .itemAd{
             width: 190px;

@@ -109,7 +109,8 @@ const Page = ()=>{
         pagination.push(i);
     }
 
-    console.log(currentPage);
+
+    localStorage.setItem('currentPage',currentPage);
 
     return(
         <PageContainer>
