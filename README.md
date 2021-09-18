@@ -5,13 +5,27 @@
 
 ![Preview](https://i.imgur.com/6tOKW9a.png)
 
-### Principais tecnologias:
+### Link para o site: 
+
+[NÃOLX](https://lucid-lovelace-be7de7.netlify.app)
+
+# API externa encontra-se com problemas em servidores, mas funcionando de forma local
+
+## Instalação das dependências
+
+> **npm install**
+        *or*
+> **yarn install**
+
+## Executando o projeto
+
+> **yarn start**
+>  or
+> **npm start**
+
+## Principais tecnologias:
 
 ![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
-
-###Link para o site: 
-
-[NÃOLX](https://www.linkedin.com/in/igor-pedrosa-b12769188/)
