@@ -1,6 +1,5 @@
 import Cookies from 'js-cookie';
 import qs from 'qs';
-import { async } from 'q';
 
 const BASEAPI = 'http://alunos.b7web.com.br:501';
 

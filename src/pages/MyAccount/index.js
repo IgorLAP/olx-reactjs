@@ -20,7 +20,7 @@ const Page = ()=>{
         <PageContainer>
             <PageTitle>Minha Conta</PageTitle> 
             <PageArea>
-                {user && 
+                {user && !!user.length &&
                     user.map((i,k)=>
                         <div key={k}>{i}</div>
                     )
