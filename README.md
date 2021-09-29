@@ -9,21 +9,21 @@
 
 [NÃOLX](https://lucid-lovelace-be7de7.netlify.app)
 
-# API externa encontra-se com problemas em servidores, mas funcionando de forma local
+## API só disponibilizada através de http, dando problemas de CORS. Para experiência correta por favor instalar na máquina de maneira remota!
 
-## Instalação das dependências
+### Instalação das dependências
 
 > **npm install**
         *or*
 > **yarn install**
 
-## Executando o projeto
+### Executando o projeto
 
 > **yarn start**
 >  or
 > **npm start**
 
-## Principais tecnologias:
+
 
 ![React JS](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)

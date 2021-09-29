@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SearchArea = styled.div`
-    background-color: red;
+    background-color: #DDD;
     border-bottom: 1px solid #CCC;
 
     form{
